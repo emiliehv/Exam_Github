@@ -32,6 +32,18 @@ library(palmerpenguins)
 data("penguins")
 head(penguins)
 
+library(ggplot2)
+library(tidyverse)
+
+# Scatter plot of bill length vs flipper length
+penguins %>% 
+  ggplot(aes(bill_length_mm, flipper_length_mm, col="red"))+
+  geom_point(show.legend = FALSE)+
+  ggtitle("Scatter plot of Penguin's Bill length vs Flipper length")+
+  xlab("Bill Length (mm)")+
+  ylab("Flipper Length (mm)")+
+  theme_bw()
+
 ```
 
 
