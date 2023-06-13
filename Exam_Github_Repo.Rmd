@@ -17,4 +17,15 @@ library(usethis)
 use_github()
 ```
 
+```{r}
+git_default_branch_rename()
+```
+
+```{r}
+#Something to write
+```
+
+
+
+
 
