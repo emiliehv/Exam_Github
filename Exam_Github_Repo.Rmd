@@ -25,6 +25,16 @@ git_default_branch_rename()
 #Something to write
 ```
 
+```{r}
+#Testing this out
+
+library(palmerpenguins)
+data("penguins")
+head(penguins)
+
+```
+
+
 
 
 
