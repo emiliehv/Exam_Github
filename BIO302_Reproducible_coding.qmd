@@ -10,21 +10,55 @@ The data is extracted from the research article "Is Zooplankton Body Size an Ind
 
 Research article: https://link.springer.com/article/10.1007/s10021-021-00656-2
 
-Data (Dryar): https://doi.org/10.5061/dryad.1ns1rn8tb
+Data (Dryad): https://doi.org/10.5061/dryad.1ns1rn8tb
 
-## Reproducible data
+## Reproducible data - Figure 2
 
-From the paper,
+From the paper, Figure 2 will be reproduced. Therefore, the csv.-file containing the data for Figure 2 is saved separately (Reproducible_ecosystemes_Figure2.csv). The complete Excel document with all data can also be found in the repository, as well as via the Dryad link.
 
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
+First, download data.
 
 ```{r}
-#| echo: false
-2 * 2
+Figure2_df <- read.csv("Reproducible_ecosystemes_Figure2.csv", sep = ";", header = TRUE ) #Download csv.-file with data needed for Figure 2
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Then, reproduce the plot in Figure 2.
+
+Challenges:
+
+-   The sheets in the Excel document needed some editing. When using, a long format for the figure, the categories needed some adjustments.
+
+-   The plot itself?
+
+```{r}
+
+#Packages
+
+library(ggforce) #Function geom_sina
+library(ggplot2) #Function ggplot
+
+#Right order of categories
+
+Figure2_df$Category <- factor(Figure2_df$Category,
+                                         levels = paste(c("Rotifera","Cladocera","Copepoda"))) #Right order of species categories
+
+Figure2_df$Located_site <- factor(Figure2_df$Located_site,
+                                         levels = paste(c("Lake_Qiandaohu", "Guangdong_reservoirs"))) #Right order of sites
+
+#Plot
+
+ggplot(Figure2_df, aes(x=Category, y=Body_length_mm, color=Located_site, fill=Located_site)) + #Specify variables and color/fill for the figure
+  geom_violin(lwd=1)+ #Thickness of lines
+  labs(y = "Body length") +
+  scale_color_manual(values=c("grey", "black"), limits=c("Lake_Qiandaohu", "Guangdong_reservoirs"), labels=c('Lake Qiandaohu', 'Guangdong reservoirs')) + #Line color
+  scale_fill_manual(values=c("white", "white"), limits=c("Lake_Qiandaohu", "Guangdong_reservoirs"), labels=c('Lake Qiandaohu', 'Guangdong reservoirs')) + #Fill color
+  theme_test() + #Adjusted theme 
+  theme(
+    legend.position = c(0.22, 0.78), #Legend position
+    axis.title.x=element_blank(), 
+    legend.title=element_blank(),
+    axis.text = element_text(size=16),
+    axis.title.y = element_text(size = 16),
+    legend.text = element_text(size=16)) +
+  geom_sina(alpha=0.5) #Include dots
+```
