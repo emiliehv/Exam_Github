@@ -1,22 +1,22 @@
-Category;Located site;Body length(mm)
-Rotifera;Lake Qiandaohu;0.08
+Category;Located_site;Body_length_mm
+Rotifera;Lake_Qiandaohu;0.08
 ;;0.1
 ;;0.11
 ;;0.175
 ;;0.31
-;Guangdong reservoirs;0.099391
+;Guangdong_reservoirs;0.099391
 ;;0.312922
-Cladocera;Lake Qiandaohu;0.4
+Cladocera;Lake_Qiandaohu;0.4
 ;;0.435714
 ;;0.935568
 ;;1.575
-;Guangdong reservoirs;0.238095
+;Guangdong_reservoirs;0.238095
 ;;0.285714
 ;;0.293651
 ;;0.380952
 ;;0.400898
 ;;0.515873
-Copepoda;Lake Qiandaohu;0.420257
+Copepoda;Lake_Qiandaohu;0.420257
 ;;0.642857
 ;;0.657917
 ;;0.680804
@@ -24,7 +24,7 @@ Copepoda;Lake Qiandaohu;0.420257
 ;;1.079167
 ;;1.142708
 ;;1.525
-;Guangdong reservoirs;0.390698
+;Guangdong_reservoirs;0.390698
 ;;0.455814
 ;;0.455814
 ;;0.642857
