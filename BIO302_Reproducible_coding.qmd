@@ -1,0 +1,30 @@
+---
+title: "BIO_Reproducible_coding"
+format: html
+editor: visual
+---
+
+## Data and references
+
+The data is extracted from the research article "Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?" (2021), and the data set contains information on the body length of three groups of zooplankton from tree locations.
+
+Research article: https://link.springer.com/article/10.1007/s10021-021-00656-2
+
+Data (Dryar): https://doi.org/10.5061/dryad.1ns1rn8tb
+
+## Reproducible data
+
+From the paper,
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
