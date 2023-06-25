@@ -62,7 +62,7 @@ Figure2_df$Located_site <- factor(Figure2_df$Located_site,
 
 ggplot(Figure2_df, aes(x=Category, y=Body_length_mm, color=Located_site, fill=Located_site)) + #Specify variables and color/fill for the figure
   geom_violin(lwd=1)+ #Thickness of lines
-  labs(y = "Body length") +
+  labs(y = expression("body length (*10"^3 ~ mu ~ "m)")) +
   scale_color_manual(values=c("grey", "black"), limits=c("Lake_Qiandaohu", "Guangdong_reservoirs"), labels=c('Lake Qiandaohu', 'Guangdong reservoirs')) + #Line color
   scale_fill_manual(values=c("white", "white"), limits=c("Lake_Qiandaohu", "Guangdong_reservoirs"), labels=c('Lake Qiandaohu', 'Guangdong reservoirs')) + #Fill color
   theme_test() + #Adjusted theme 
@@ -72,6 +72,6 @@ ggplot(Figure2_df, aes(x=Category, y=Body_length_mm, color=Located_site, fill=Lo
     legend.title=element_blank(),
     axis.text = element_text(size=16),
     axis.title.y = element_text(size = 16),
-    legend.text = element_text(size=16)) +
+    legend.text = element_text(size=14)) +
   geom_sina(alpha=0.5) #Include dots
 ```
