@@ -8,35 +8,44 @@ editor: visual
 
 The data is extracted from the research article "Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?" (2021), and the data set contains information on the body length of three groups of zooplankton from tree locations.
 
-Research article: https://link.springer.com/article/10.1007/s10021-021-00656-2
+Reference:
 
-Data (Dryad): https://doi.org/10.5061/dryad.1ns1rn8tb
+Wang, L., Chen, J., Su, H. *et al.* Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?. *Ecosystems* **25**, 308--319 (2022). https://doi.org/10.1007/s10021-021-00656-2
+
+Online research article:
+
+https://link.springer.com/article/10.1007/s10021-021-00656-2
+
+Data (Dryad):
+
+https://doi.org/10.5061/dryad.1ns1rn8tb
 
 ## Reproducible data - Figure 2
 
-From the paper, Figure 2 will be reproduced. Therefore, the csv.-file containing the data for Figure 2 is saved separately (Reproducible_ecosystemes_Figure2.csv). The complete Excel document with all data can also be found in the repository, as well as via the Dryad link.
+From the paper, Figure 2 will be reproduced:
 
-First, download data.
+![](images/Figure_2.png)
+
+To easily work with the data needed for Fig. 2, the csv.-file containing the relevant data was saved separately (Reproducible_ecosystemes_Figure2.csv). The complete Excel document with all data can also be found in the repository, as well as via the Dryad link.
+
+1.  Download the relevant data for Fig. 2.
 
 ```{r}
 Figure2_df <- read.csv("Reproducible_ecosystemes_Figure2.csv", sep = ";", header = TRUE ) #Download csv.-file with data needed for Figure 2
 ```
 
-Then, reproduce the plot in Figure 2.
-
-Challenges:
-
--   The sheets in the Excel document needed some editing. When using, a long format for the figure, the categories needed some adjustments.
-
--   The plot itself?
+2.  Add the packages needed to create the plot and sort the data.
 
 ```{r}
-
 #Packages
 
 library(ggforce) #Function geom_sina
 library(ggplot2) #Function ggplot
+```
 
+3.  Sort the categories in right order.
+
+```{r}
 #Right order of categories
 
 Figure2_df$Category <- factor(Figure2_df$Category,
@@ -44,7 +53,11 @@ Figure2_df$Category <- factor(Figure2_df$Category,
 
 Figure2_df$Located_site <- factor(Figure2_df$Located_site,
                                          levels = paste(c("Lake_Qiandaohu", "Guangdong_reservoirs"))) #Right order of sites
+```
 
+4.  Plot the figure.
+
+```{r}
 #Plot
 
 ggplot(Figure2_df, aes(x=Category, y=Body_length_mm, color=Located_site, fill=Located_site)) + #Specify variables and color/fill for the figure
