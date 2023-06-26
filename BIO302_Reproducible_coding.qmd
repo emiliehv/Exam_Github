@@ -8,9 +8,11 @@ editor: visual
 
 The data is extracted from the research article "Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?" (2021), and the data set contains information on the body length of three groups of zooplankton from tree locations.
 
+Remember: Download renv.lock
+
 Reference:
 
-Wang, L., Chen, J., Su, H. *et al.* Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?. *Ecosystems* **25**, 308--319 (2022). https://doi.org/10.1007/s10021-021-00656-2
+Wang, L., Chen, J., Su, H.B *et al.*B Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?.B *Ecosystems*B **25**, 308--319 (2022). https://doi.org/10.1007/s10021-021-00656-2
 
 Online research article:
 
@@ -19,6 +21,12 @@ https://link.springer.com/article/10.1007/s10021-021-00656-2
 Data (Dryad):
 
 https://doi.org/10.5061/dryad.1ns1rn8tb
+
+```{r}
+#Ect inkludere checker
+library(here)
+library(renv)
+```
 
 ## Reproducible data - Figure 2
 
