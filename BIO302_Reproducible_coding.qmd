@@ -22,7 +22,7 @@ https://doi.org/10.5061/dryad.1ns1rn8tb
 
 ## 1. Packages
 
-Packages needed to create the plot and sort the data.
+Packages needed to create the plot and sort the data, as well as activate 'renv'.
 
 ```{r}
 library(here) #Help loading data
