@@ -41,6 +41,8 @@ To easily work with the data needed for Fig. 2, the csv.-file containing the rel
 
 #### 2. 1 Download the relevant data for Fig. 2.
 
+Note: Make sure that the working directory is adjusted to the relevant folder after cloning the Github repository.
+
 ```{r}
 Figure2_df <- read.csv("Reproducible_ecosystemes_Figure2.csv", sep = ";", header = TRUE ) #Download csv.-file with data needed for Figure 2
 ```
