@@ -8,8 +8,6 @@ editor: visual
 
 The data is extracted from the research article "Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?" (2021), and the data set contains information on the body length of three groups of zooplankton from tree locations.
 
-Remember: Download renv.lock
-
 Reference:
 
 Wang, L., Chen, J., Su, H.B *et al.*B Is Zooplankton Body Size an Indicator of Water Quality in (Sub)tropical Reservoirs in China?.B *Ecosystems*B **25**, 308--319 (2022). https://doi.org/10.1007/s10021-021-00656-2
@@ -22,13 +20,18 @@ Data (Dryad):
 
 https://doi.org/10.5061/dryad.1ns1rn8tb
 
+## 1. Packages
+
+Packages needed to create the plot and sort the data.
+
 ```{r}
-#Ect inkludere checker
-library(here)
-library(renv)
+library(here) #Help loading data
+library(renv) # Package management
+library(ggforce) #Function geom_sina
+library(ggplot2) #Function ggplot
 ```
 
-## Reproducible data - Figure 2
+## 2. Reproducible data - Figure 2
 
 From the paper, Figure 2 will be reproduced:
 
@@ -36,22 +39,13 @@ From the paper, Figure 2 will be reproduced:
 
 To easily work with the data needed for Fig. 2, the csv.-file containing the relevant data was saved separately (Reproducible_ecosystemes_Figure2.csv). The complete Excel document with all data can also be found in the repository, as well as via the Dryad link.
 
-1.  Download the relevant data for Fig. 2.
+#### 2. 1 Download the relevant data for Fig. 2.
 
 ```{r}
 Figure2_df <- read.csv("Reproducible_ecosystemes_Figure2.csv", sep = ";", header = TRUE ) #Download csv.-file with data needed for Figure 2
 ```
 
-2.  Add the packages needed to create the plot and sort the data.
-
-```{r}
-#Packages
-
-library(ggforce) #Function geom_sina
-library(ggplot2) #Function ggplot
-```
-
-3.  Sort the categories in right order.
+#### 2. 2 Sort the categories in right order.
 
 ```{r}
 #Right order of categories
@@ -60,10 +54,10 @@ Figure2_df$Category <- factor(Figure2_df$Category,
                                          levels = paste(c("Rotifera","Cladocera","Copepoda"))) #Right order of species categories
 
 Figure2_df$Located_site <- factor(Figure2_df$Located_site,
-                                         levels = paste(c("Lake_Qiandaohu", "Guangdong_reservoirs"))) #Right order of sites
+                                         levels = paste(c("Lake_Qiandaohu", "Guangdong_reservoirs"))) #Right order of site
 ```
 
-4.  Plot the figure.
+#### 2. 3 Plot
 
 ```{r}
 #Plot
